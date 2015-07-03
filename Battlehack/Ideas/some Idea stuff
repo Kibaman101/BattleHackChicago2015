@@ -1,0 +1,5 @@
+HTML - login form
+
+JS FILE - code for parse that reads info from the login form (parse code is javascript code that communicates with Nodejs)
+
+braintree is for RECEIVING payments

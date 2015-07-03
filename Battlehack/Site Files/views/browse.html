@@ -1,0 +1,117 @@
+<!--voting-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Browse Ideas</title>
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+   <meta charset="utf-8">
+   <title>Login Page</title>
+   <meta name="description" content="Login">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1..3/jquery.min.js"></script>
+   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+   <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+   <script>
+       Parse.initialize("Nw6OFG87WmQxvheJ30fuEmIIEr2152zMdZdZ0qlH", "Gi39AF64IzBE2QHIUzc13fqoqa22lpfKacKWFdIM");
+   </script>
+    <script type="text/javascript">
+   var clicks = 0;
+   function onClick() {
+       clicks += 1;
+       document.getElementById("clicks").innerHTML = clicks;
+   };
+
+   var click = 0;
+   function onClicks() {
+       click += 1;
+       document.getElementById("click").innerHTML = click;
+   };
+   </script>
+</head>
+<body background="wall.png" style="height:auto;">
+
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="index.html">App Into It</a>
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Username" name="username">&nbsp;
+                  <input type="password" class="form-control" placeholder="Password" name="password">
+                </div>
+                <button type="submit" class="btn btn-default" onclick="toLogin(this.form)" value="Login"/>Login</button>
+              </form>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+     <div id="col-sm-6" style="background-color: #FFF;padding-top: 10px;padding-bottom: 20px;text-align: right;padding-right: 10px;margin-top: -20px;"><a href="contact-us.html"><h2 style="text-align:center">Contact Us</h2></a></div>
+    <div class="container"  style="background-color:#fff; opacity: 0.8;padding-bottom:25px">
+            <h1 style="text-align:center;text-decoration:underline;">Most Recent Ideas</h1>
+            <hr>
+            <a href="humanoids.html"><p id="whatever"></p></a>
+            <table style="margin-left:auto; margin-right:auto">
+            <tr><td><a id="clicks">0</a>&nbsp;&nbsp;<img id="thumbUp"src="11thumbup.png" onClick="onClick()"></td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><img id="thumbDown"src="11thumbdown.png" onClick="onClicks()">&nbsp;&nbsp;<a id="click">0</a></td></tr>
+            </table>
+            <hr>
+             <a href="idump.html"><p id="whatever2"></p></a>
+            <table style="margin-left:auto; margin-right:auto">
+            <tr><td>0 &nbsp;&nbsp;<img id="thumbUp"src="11thumbup.png"></td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><img id="thumbDown"src="11thumbdown.png">&nbsp;&nbsp; 0</td></tr>
+            </table>
+            <hr>
+            <a href="food-truck-locator.html"><p id="whatever3"></p></a>
+            <table style="margin-left:auto; margin-right:auto">
+            <tr><td>0 &nbsp;&nbsp;<img id="thumbUp"src="11thumbup.png"></td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><img id="thumbDown"src="11thumbdown.png">&nbsp;&nbsp; 0</td></tr>
+            </table>
+            <hr>
+            <a href="cat-finder.html"><p id="whatever4"></p></a>
+            <table style="margin-left:auto; margin-right:auto">
+            <tr><td>0 &nbsp;&nbsp;<img id="thumbUp"src="11thumbup.png"></td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><img id="thumbDown"src="11thumbdown.png">&nbsp;&nbsp; 0</td></tr>
+            </table>
+            <hr>
+            <a href=""><p id="whatever5"></p></a>
+
+        <hr>
+    </div>
+  <div id="col-sm-6" style="background-color:#fff; padding-top:20px;padding-bottom:50px;text-align:right; padding-right:10px">
+      <div style="float:left;">
+        <ul style="text-align:left;">
+          <li><a href="submit.html">Submit Ideas</a></li>
+        </ul>
+      </div>
+      <div style="float:right;padding-bottom:20px;vertical-align:middle;">Copyright B.A.N.Z. 2015©</div>
+  </div>
+    <script>
+
+        function ideaList()
+        {
+            var query = new Parse.Query("Idea");
+            query.find({
+                success: function(results) {
+                    document.getElementById("whatever").innerHTML = results[0].attributes.Name + " - " + results[0].attributes.Description
+                    document.getElementById("whatever2").innerHTML = results[1].attributes.Name + " - " + results[1].attributes.Description
+                    document.getElementById("whatever3").innerHTML = results[2].attributes.Name + " - " + results[2].attributes.Description
+                    document.getElementById("whatever4").innerHTML = results[3].attributes.Name + " - " + results[3].attributes.Description
+                    document.getElementById("whatever5").innerHTML = results[4].attributes.Name + " - " + results[4].attributes.Description
+
+                }
+            })
+        }
+        window.onload = ideaList();
+
+    </script>
+</body>
+</html>

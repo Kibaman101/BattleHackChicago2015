@@ -1,0 +1,14 @@
+
+<p id="whatever"></p>
+
+<script type="text/javascript">
+	function ideaList()
+	{
+		var query = new Parse.Query("Ideas");
+		query.find({
+			success: function(results) {
+				document.getElementsById("whatever").innerHTML = results[0].attributes.Name + " " + results[0].attributes.Description
+			}
+		})
+	}
+</script>

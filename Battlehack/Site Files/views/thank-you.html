@@ -1,0 +1,74 @@
+<!--Thank you-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>App Into It</title>
+	<link rel="stylesheet" type="text/css" href="styles/main.css">
+    <meta charset="utf-8">
+    <title>Login Page</title>
+    <meta name="description" content="Login">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+</head>
+<body background="wall.png" style="height:auto;">
+
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="index.html">App Into It</a>
+
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <form class="navbar-form navbar-right" role="search">
+		        <div class="form-group">
+		          <input type="text" class="form-control" placeholder="Username" name="username">&nbsp;
+		          <input type="password" class="form-control" placeholder="Password" name="password">
+		        </div>
+		        <button type="submit" class="btn btn-default" onclick="toLogin(this.form)" value="Login"/>Login</button>
+		      </form>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+	</div>
+	<div id="col-sm-6" style="background-color: #FFF;padding-top: 10px;padding-bottom: 20px;text-align: right;padding-right: 10px;margin-top: -20px;"><a href="contact-us.html"><h2 style="text-align:center">Contact Us</h2></a></div>
+	<div class="container"  style="background-color:#fff; opacity: 0.8;padding-bottom:25px;">
+			<h1 style="text-align:center;">Thanks for investing!</h1>
+
+				<form class="navbar-form navbar-right">
+			       
+	</div>
+	<div id="col-sm-6" style="background-color:#fff; padding-top:20px;padding-bottom:50px;text-align:right; padding-right:10px">
+			<div style="float:left;">
+				<ul style="text-align:left;">
+					<li><a href="submit.html">Submit Ideas</a></li>
+					<li><a href="browse.html">Recent Ideas</a></li>
+				</ul>
+			</div>
+			<div style="float:right;padding-bottom:20px;vertical-align:middle;">Copyright B.A.N.Z. 2015©</div>
+	</div>
+
+  <script>
+Parse.initialize("Nw6OFG87WmQxvheJ30fuEmIIEr2152zMdZdZ0qlH", "Gi39AF64IzBE2QHIUzc13fqoqa22lpfKacKWFdIM");
+
+				          function submitIdea(form) {
+
+				          	var Idea = Parse.Object.extend("Idea");
+							var idea = new Idea();
+							idea.set("VoteCount", 0)
+				          	idea.save({Name: form.name.value, Description : form.description.value}).then(alert("Thanks for submitting your idea!"));
+				        };
+				    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!--Index-->
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>App Into It</title>
+	<link rel="stylesheet" type="text/css" href="styles/main.css">
+    <meta charset="utf-8">
+    <title>Login Page</title>
+    <meta name="description" content="Login">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+    <script>
+        Parse.initialize("Nw6OFG87WmQxvheJ30fuEmIIEr2152zMdZdZ0qlH", "Gi39AF64IzBE2QHIUzc13fqoqa22lpfKacKWFdIM");
+    </script>
+	
+</head>
+<body background="wall.png" style="height:auto;">
+
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="index.html">App Into It</a>
+
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <form class="navbar-form navbar-right">
+		        <div class="form-group">
+		          <input type="text" class="form-control" placeholder="Email" name="username">&nbsp;
+		          <input type="phone" class="form-control" placeholder="Phone" name="phone">&nbsp;
+		          <input type="password" class="form-control" placeholder="Password" name="password">
+		        </div>
+		        <button type="submit" class="btn btn-default" onclick="toLogin(this.form)" value="Login" />Login</button>
+		        <button type="submit" class="btn btn-default" onclick="userRegistrationSubmit(this.form)" value="Login" />
+		        Register</button>
+
+		      </form>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+	</div>
+	<div id="col-sm-6" style="background-color: #FFF;padding-top: 10px;padding-bottom: 20px;text-align: right;padding-right: 10px;margin-top: -20px;"><a href="contact-us.html"><h2 style="text-align:center">Contact Us</h2></a></div>
+	<div class="container"  style="background-color:#fff; opacity: 0.8; padding-bottom:25px;">
+			<h1 style="text-align:center;">App Into It</h1>
+			<h2 style="text-align:center;">Crowdfunding for App Ideas!</h2>
+			<h3 style="text-align:center;">Do you have a <br> cool app idea?</h3>
+			&nbsp;
+				<ul style="display:table; margin:0 auto;">
+					<li>Looking for support?</li>
+					<li>In need of funding?</li>
+					<li>Want to change the world?</li>
+				</ul>
+			<br>
+			<img src="ipod.png" style="height:300px;width:auto;margin-left:34%">
+			<h3 style="text-align:center;">Mission & Vision</h3>
+			<ul style="display:table; margin:0 auto;">
+				<li><strong>For the COMMUNITY</strong></li>
+				<li><strong>By the COMMUNITY</strong></li>
+				<li><strong>With the COMMUNITY</strong></li>
+			</ul>
+	
+	</div> 
+	<div id="col-sm-6" style="background-color:#fff; padding-top:20px;padding-bottom:50px;text-align:right; padding-right:10px">
+			<div style="float:left;">
+				<ul style="text-align:left;">
+					<li><a href="submit.html">Submit Ideas</a></li>
+					<li><a href="browse.html">Recent Ideas</a></li>
+				</ul>
+			</div>
+			<div style="float:right;padding-bottom:20px;vertical-align:middle;">Copyright B.A.N.Z. 2015©</div>
+	</div>
+	<script>
+	function toLogin(form) {
+
+		Parse.User.logIn(form.username.value, form.password.value, 
+		{
+		   success: function(user) {
+		     	if (user.attributes.role == "admin")
+		       		{window.alert("Success")}
+		     	else
+		       		{window.alert("YOU SUCK")}
+		   },
+		   error: function(user, error) {
+		     	alert("error")
+		   }
+		});
+	}
+	
+				          function userRegistrationSubmit(form) {
+				          var user = new Parse.User();
+				          user.set("username", form.username.value)
+				          user.set("phone", form.phone.value)
+				          user.set("password", form.password.value)
+				          user.set("role", "user")
+				          user.signUp(null, {
+				            success: function(user) {
+				             alert("new user registrated successfully")
+				            },
+				            error: function(user, error) {
+				             alert("New User Registered Successfully!");
+				           }
+				          })
+				        }
+				    </script>
+			</body>
+</html>

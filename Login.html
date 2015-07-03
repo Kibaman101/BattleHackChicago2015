@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+Parse.initialize("OjaI2AgHNLOd9w59ueGXzzriG57wJmLbXWnhBlXY", "ngYsmxrQSO0WGdJrTTThoF8wPe34x6lnkZshkd7z");
+function toLogin(form) {
+    Parse.User.logIn(form.username.value, form.password.value, 
+    {
+       success: function(user) {
+             if (user.attributes.role == "admin")
+                   {window.open('admin_login.html')}
+             else
+                   {window.open('user_login.html')}
+       },
+       error: function(user, error) {
+             alert("error")
+       }
+    });
+}
+</script>
+</head>
+
+<body>
+
+<form name="login">
+             <br>Username: <input type="text" name="username"/></br>
+             <br>Password: <input type="password" name="password"/></br>
+             <br><input type="button" onclick="toLogin(this.form)" value="Login"/></br>
+             <br><input type="reset" value="Cancel"/></br>
+          </form>
+          </body>
+</html>
